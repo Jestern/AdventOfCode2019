@@ -28,5 +28,18 @@ namespace AdventOfCode2019.Tests
 
             Assert.AreEqual(result, dayOne.CalculateSumOfFuel());
         }
+
+        [Test]
+        [Sequential]
+        public void CalculateSumOfFuelPlusFuelTests(
+            [Values(14, 1969, 100756)] int mass,
+            [Values(2, 966, 50346)] int result)
+        {
+            repository.Setup(r => r.GetDayOneInput()).Returns(new List<int>() { mass });
+
+            var dayOne = new DayOne(repository.Object);
+
+            Assert.AreEqual(result, dayOne.CalculateSumOfFuelPlusFuel());
+        }
     }
 }

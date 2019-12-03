@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using AdventOfCode2019.IO;
 
 namespace AdventOfCode2019.Domain
@@ -16,18 +17,34 @@ namespace AdventOfCode2019.Domain
         public int CalculateSumOfFuel()
         {
             var masses = repository.GetDayOneInput();
-            var result = 0;
-            foreach (var mass in masses)
-            {
-                result += CalculateFuelPerMass(mass);
-            }
 
-            return result;
+            return masses.Sum(CalculateFuelPerMass);
+        }
+
+        public int CalculateSumOfFuelPlusFuel()
+        {
+            var masses = repository.GetDayOneInput();
+
+            return masses.Sum(CalculateFuelPerMassPlusFuel);
         }
 
         private static int CalculateFuelPerMass(int mass)
         {
             return (mass / 3 - 2);
+        }
+
+        private static int CalculateFuelPerMassPlusFuel(int mass)
+        {
+            var result = CalculateFuelPerMass(mass);
+
+            if (result <= 0)
+            {
+                return 0;
+            }
+
+            result += CalculateFuelPerMassPlusFuel(result);
+
+            return result;
         }
     }
 }
