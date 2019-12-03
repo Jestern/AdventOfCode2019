@@ -5,5 +5,7 @@ namespace AdventOfCode2019.IO
     public interface IRepository
     {
         IEnumerable<int> GetDayOneInput();
+
+        IEnumerable<int> GetDayTwoInput();
     }
 }
