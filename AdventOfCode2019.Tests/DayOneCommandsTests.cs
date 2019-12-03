@@ -6,7 +6,7 @@ using NUnit.Framework;
 
 namespace AdventOfCode2019.Tests
 {
-    public class Tests
+    public class DayOneCommandsTests
     {
         private Mock<IRepository> repository;
 
@@ -24,7 +24,7 @@ namespace AdventOfCode2019.Tests
         {
             repository.Setup(r => r.GetDayOneInput()).Returns(new List<int>() {mass});
 
-            var dayOne = new DayOne(repository.Object);
+            var dayOne = new DayOneCommands(repository.Object);
 
             Assert.AreEqual(result, dayOne.CalculateSumOfFuel());
         }
@@ -37,7 +37,7 @@ namespace AdventOfCode2019.Tests
         {
             repository.Setup(r => r.GetDayOneInput()).Returns(new List<int>() { mass });
 
-            var dayOne = new DayOne(repository.Object);
+            var dayOne = new DayOneCommands(repository.Object);
 
             Assert.AreEqual(result, dayOne.CalculateSumOfFuelPlusFuel());
         }

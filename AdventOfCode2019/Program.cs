@@ -7,12 +7,12 @@ namespace AdventOfCode2019
     class Program
     {
         private static IRepository repository;
-        private static DayOne dayOne;
+        private static DayOneCommands dayOne;
 
         private static void SetUp()
         {
             repository = new InputRepository();
-            dayOne = new DayOne(repository);
+            dayOne = new DayOneCommands(repository);
         }
         static void Main(string[] args)
         {

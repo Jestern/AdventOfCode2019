@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AdventOfCode2019.Commands\AdventOfCode2019.Commands.csproj" />
     <ProjectReference Include="..\AdventOfCode2019.Domain\AdventOfCode2019.Domain.csproj" />
     <ProjectReference Include="..\AdventOfCode2019.IO\AdventOfCode2019.IO.csproj" />
   </ItemGroup>

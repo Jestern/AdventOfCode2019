@@ -5,11 +5,11 @@ using AdventOfCode2019.IO;
 
 namespace AdventOfCode2019.Domain
 {
-    public class DayOne
+    public class DayOneCommands
     {
         private readonly IRepository repository;
 
-        public DayOne(IRepository repository)
+        public DayOneCommands(IRepository repository)
         {
             this.repository = repository;
         }
