@@ -12,7 +12,7 @@ namespace AdventOfCode2019
 
         private static void SetUp()
         {
-            repository = new InputRepository();
+            repository = new FileRepository();
             solutionsService = new SolutionsService(repository);
         }
         static void Main(string[] args)

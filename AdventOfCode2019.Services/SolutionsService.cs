@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AdventOfCode2019.Domain;
@@ -28,14 +29,15 @@ namespace AdventOfCode2019.Services
 
         private void SolveDayOneProblem()
         {
-            var masses = repository.GetDayOneInput();
+            var masses = repository.GetDayOneInput().ToList();
+
             outputBuilder.AppendLine($"Result of first half of Day one's problem: {DayOneCommands.CalculateSumOfFuel(masses)}");
             outputBuilder.AppendLine($"Result of second half of Day one's problem: {DayOneCommands.CalculateSumOfFuelPlusFuel(masses)}");
         }
 
         private void SolveDayTwoProblem()
         {
-            var programMemory = repository.GetDayTwoInput();
+            var programMemory = repository.GetDayTwoInput().ToList();
             
             outputBuilder.AppendLine($"Result of first half of Day two's problem: {DayTwoCommands.RunIntcode(programMemory, 12, 2)}");
             outputBuilder.AppendLine($"Result of second half of Day two's problem: {DayTwoCommands.FindNounAndVerb(programMemory, 19690720)}");
