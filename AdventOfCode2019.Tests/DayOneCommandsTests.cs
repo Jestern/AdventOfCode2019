@@ -8,25 +8,18 @@ namespace AdventOfCode2019.Tests
 {
     public class DayOneCommandsTests
     {
-        private Mock<IRepository> repository;
-
-        [SetUp]
-        public void Setup()
-        {
-            repository = new Mock<IRepository>();
-        }
-
         [Test]
         [Sequential]
         public void CalculateSumOfFuelTests(
             [Values(12, 14, 1969, 100756)] int mass, 
             [Values(2, 2, 654, 33583)] int result)
         {
-            repository.Setup(r => r.GetDayOneInput()).Returns(new List<int>() {mass});
+            var masses = new List<int>()
+            {
+                mass
+            };
 
-            var dayOne = new DayOneCommands(repository.Object);
-
-            Assert.AreEqual(result, dayOne.CalculateSumOfFuel());
+            Assert.AreEqual(result, DayOneCommands.CalculateSumOfFuel(masses));
         }
 
         [Test]
@@ -35,11 +28,12 @@ namespace AdventOfCode2019.Tests
             [Values(14, 1969, 100756)] int mass,
             [Values(2, 966, 50346)] int result)
         {
-            repository.Setup(r => r.GetDayOneInput()).Returns(new List<int>() { mass });
+            var masses = new List<int>()
+            {
+                mass
+            };
 
-            var dayOne = new DayOneCommands(repository.Object);
-
-            Assert.AreEqual(result, dayOne.CalculateSumOfFuelPlusFuel());
+            Assert.AreEqual(result, DayOneCommands.CalculateSumOfFuelPlusFuel(masses));
         }
     }
 }

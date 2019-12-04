@@ -5,26 +5,15 @@ using AdventOfCode2019.IO;
 
 namespace AdventOfCode2019.Domain
 {
-    public class DayOneCommands
+    public static class DayOneCommands
     {
-        private readonly IRepository repository;
-
-        public DayOneCommands(IRepository repository)
+        public static int CalculateSumOfFuel(IEnumerable<int> masses)
         {
-            this.repository = repository;
-        }
-
-        public int CalculateSumOfFuel()
-        {
-            var masses = repository.GetDayOneInput();
-
             return masses.Sum(CalculateFuelPerMass);
         }
 
-        public int CalculateSumOfFuelPlusFuel()
+        public static int CalculateSumOfFuelPlusFuel(IEnumerable<int> masses)
         {
-            var masses = repository.GetDayOneInput();
-
             return masses.Sum(CalculateFuelPerMassPlusFuel);
         }
 

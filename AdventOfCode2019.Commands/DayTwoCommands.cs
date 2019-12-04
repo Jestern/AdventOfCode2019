@@ -5,18 +5,11 @@ using AdventOfCode2019.IO;
 
 namespace AdventOfCode2019.Domain
 {
-    public class DayTwoCommands
+    public static class DayTwoCommands
     {
-        private IRepository repository;
-
-        public DayTwoCommands(IRepository repository)
+        public static int RunIntcode(IEnumerable<int> programMemory, int? firstArgument = null, int? secondArgument = null)
         {
-            this.repository = repository;
-        }
-
-        public int RunIntcode(int? firstArgument = null, int? secondArgument = null)
-        {
-            var programArray = repository.GetDayTwoInput().ToArray();
+            var programArray = programMemory.ToArray();
 
             if (firstArgument != null)
             {
@@ -55,6 +48,23 @@ namespace AdventOfCode2019.Domain
             }
 
             return programArray[0];
+        }
+
+        public static int FindNounAndVerb(IEnumerable<int>programMemory, int expectedResult, int startRange = 0, int endRange = 99)
+        {
+            for (var noun = startRange; noun < endRange; ++noun)
+            {
+                for (var verb = startRange; verb < endRange; ++verb)
+                {
+                    var result = RunIntcode(programMemory, noun, verb);
+                    if (result == expectedResult)
+                    {
+                        return 100 * noun + verb;
+                    }
+                }
+            }
+
+            return -1;
         }
 
         private static void Add(int firstOperand, int secondOperand, int resultPosition, ref int[] programMemory)
