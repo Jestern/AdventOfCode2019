@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using AdventOfCode2019.Domain;
 using AdventOfCode2019.IO;
 
-namespace AdventOfCode2019.Domain
+namespace AdventOfCode2019.Commands
 {
     public static class DayTwoCommands
     {

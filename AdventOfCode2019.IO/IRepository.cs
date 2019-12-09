@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using AdventOfCode2019.Domain;
 
 namespace AdventOfCode2019.IO
 {
@@ -7,5 +8,7 @@ namespace AdventOfCode2019.IO
         IEnumerable<int> GetDayOneInput();
 
         IEnumerable<int> GetDayTwoInput();
+
+        Wires GetDayThreeInput();
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using AdventOfCode2019.Domain;
 
 namespace AdventOfCode2019.IO
 {
@@ -28,7 +29,17 @@ namespace AdventOfCode2019.IO
             }
         }
 
-        private string GetPath(string filename)
+        public Wires GetDayThreeInput()
+        {
+            var dayThreeInput = File.ReadAllLines(GetPath("03_DayThree.txt"));
+            var firstWire = dayThreeInput.First().Split(',');
+            var secondWire = dayThreeInput.Last().Split(',');
+
+            return Wires.CreateWires(firstWire, secondWire);
+        }
+
+
+        private static string GetPath(string filename)
         {
             return Path.Combine(AppContext.BaseDirectory, "Inputs", filename);
         }

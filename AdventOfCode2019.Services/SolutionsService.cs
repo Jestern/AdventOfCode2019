@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AdventOfCode2019.Commands;
 using AdventOfCode2019.Domain;
 using AdventOfCode2019.IO;
 
@@ -23,6 +24,7 @@ namespace AdventOfCode2019.Services
         {
             SolveDayOneProblem();
             SolveDayTwoProblem();
+            SolveDayThreeProblem();
 
             return outputBuilder.ToString();
         }
@@ -41,6 +43,13 @@ namespace AdventOfCode2019.Services
             
             outputBuilder.AppendLine($"Result of first half of Day two's problem: {DayTwoCommands.RunIntcode(programMemory, 12, 2)}");
             outputBuilder.AppendLine($"Result of second half of Day two's problem: {DayTwoCommands.FindNounAndVerb(programMemory, 19690720)}");
+        }
+
+        private void SolveDayThreeProblem()
+        {
+            var wires = repository.GetDayThreeInput();
+
+            outputBuilder.AppendLine($"Result of first half of Day three's problem: {DayThreeCommands.CalculateDistanceWires(wires)}");
         }
     }
 }

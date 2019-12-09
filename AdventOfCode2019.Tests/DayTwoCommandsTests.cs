@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using AdventOfCode2019.Commands;
 using AdventOfCode2019.Domain;
 using AdventOfCode2019.IO;
 using Moq;
