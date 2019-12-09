@@ -12,5 +12,7 @@ namespace AdventOfCode2019.IO
         Wires GetDayThreeInput();
 
         KeyValuePair<int, int> GetDayFourInput();
+
+        IEnumerable<int> GetDayFiveInput();
     }
 }

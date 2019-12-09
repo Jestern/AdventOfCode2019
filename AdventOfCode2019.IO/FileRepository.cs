@@ -10,23 +10,12 @@ namespace AdventOfCode2019.IO
     {
         public IEnumerable<int> GetDayOneInput()
         {
-            var dayOneInput = File.ReadAllLines(GetPath("01_DayOne.txt")).First();
-            var numbers = dayOneInput.Split(',');
-            foreach (var number in numbers)
-            {
-                yield return int.Parse(number);
-            }
+            return ReadIntSeparatedByDelimiter(GetPath("01_DayOne.txt"), ',');
         }
 
         public IEnumerable<int> GetDayTwoInput()
         {
-            var dayTwoInput = File.ReadAllLines(GetPath("02_DayTwo.txt")).First();
-            var numbers = dayTwoInput.Split(',');
-
-            foreach (var number in numbers)
-            {
-                yield return int.Parse(number);
-            }
+            return ReadIntSeparatedByDelimiter(GetPath("02_DayTwo.txt"), ',');
         }
 
         public Wires GetDayThreeInput()
@@ -46,9 +35,24 @@ namespace AdventOfCode2019.IO
             return new KeyValuePair<int, int>(int.Parse(splitValues.First()), int.Parse(splitValues.Last()));
         }
 
+        public IEnumerable<int> GetDayFiveInput()
+        {
+            return ReadIntSeparatedByDelimiter(GetPath("05_DayFive.txt"), ',');
+        }
+
         private static string GetPath(string filename)
         {
             return Path.Combine(AppContext.BaseDirectory, "Inputs", filename);
+        }
+
+        private static IEnumerable<int> ReadIntSeparatedByDelimiter(string filename, char delimiter)
+        {
+            var dayInput = File.ReadAllLines(filename).First();
+            var numbers = dayInput.Split(delimiter);
+            foreach (var number in numbers)
+            {
+                yield return int.Parse(number);
+            }
         }
     }
 }
