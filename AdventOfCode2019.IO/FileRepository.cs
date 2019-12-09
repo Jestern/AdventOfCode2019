@@ -38,6 +38,13 @@ namespace AdventOfCode2019.IO
             return Wires.CreateWires(firstWire, secondWire);
         }
 
+        public KeyValuePair<int, int> GetDayFourInput()
+        {
+            var dayFourInput = File.ReadAllLines(GetPath("04_DayFour.txt"));
+            var splitValues = dayFourInput.First().Split('-');
+
+            return new KeyValuePair<int, int>(int.Parse(splitValues.First()), int.Parse(splitValues.Last()));
+        }
 
         private static string GetPath(string filename)
         {

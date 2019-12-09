@@ -25,6 +25,7 @@ namespace AdventOfCode2019.Services
             SolveDayOneProblem();
             SolveDayTwoProblem();
             SolveDayThreeProblem();
+            SolveDayFourProblem();
 
             return outputBuilder.ToString();
         }
@@ -51,6 +52,14 @@ namespace AdventOfCode2019.Services
 
             outputBuilder.AppendLine($"Result of first half of Day three's problem: {DayThreeCommands.CalculateDistanceWires(wires)}");
             outputBuilder.AppendLine($"Result of second half of Day three's problem: {DayThreeCommands.CalculateStepsWires(wires)}");
+        }
+
+        private void SolveDayFourProblem()
+        {
+            var (lowerBound, upperBound) = repository.GetDayFourInput();
+
+            outputBuilder.AppendLine($"Result of first half of Day four's problem: {DayFourCommands.CalculatePossiblePasswords(lowerBound, upperBound)}");
+            outputBuilder.AppendLine($"Result of second half of Day four's problem: {DayFourCommands.CalculatePossiblePasswordsExtended(lowerBound, upperBound)}");
         }
     }
 }
