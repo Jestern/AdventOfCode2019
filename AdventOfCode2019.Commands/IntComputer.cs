@@ -145,7 +145,7 @@ namespace AdventOfCode2019.Commands
 
             programMemory[result] = firstArgument == secondArgument ? 1 : 0;
 
-            return index + OpCode.LessThan.Steps();
+            return index + OpCode.Equals.Steps();
         }
     }
 }
