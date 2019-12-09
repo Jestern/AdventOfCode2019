@@ -50,6 +50,7 @@ namespace AdventOfCode2019.Services
             var wires = repository.GetDayThreeInput();
 
             outputBuilder.AppendLine($"Result of first half of Day three's problem: {DayThreeCommands.CalculateDistanceWires(wires)}");
+            outputBuilder.AppendLine($"Result of second half of Day three's problem: {DayThreeCommands.CalculateStepsWires(wires)}");
         }
     }
 }
